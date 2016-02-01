@@ -1,0 +1,30 @@
+{
+  "name": "todo-step-by-step",
+  "version": "1.0.0",
+  "description": "todo demo step by step",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szhangpitt/todo-step-by-step.git"
+  },
+  "keywords": [
+    "todo",
+    "demo"
+  ],
+  "author": "Shaopeng Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szhangpitt/todo-step-by-step/issues"
+  },
+  "homepage": "https://github.com/szhangpitt/todo-step-by-step#readme",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
