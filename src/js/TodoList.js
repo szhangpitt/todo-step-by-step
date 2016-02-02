@@ -6,7 +6,7 @@
         global.todo = todo;
     }
 
-    var module = gloabl.todo.list = {};
+    var module = global.todo.list = {};
 
     module.makeItem = function (text, index) {
         return '<li>' +
@@ -15,6 +15,12 @@
                          text +
                     '</label>' +
                 '</li>';
+    }
+
+    module.makeList = function (todos) {
+        return todos.map(function (item, index) {
+            return module.makeItem(item, index);
+        });
     }
 
 }(this));

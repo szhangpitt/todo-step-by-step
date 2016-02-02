@@ -8,9 +8,7 @@
         console.log(todos);
         // Got data of all existing todo's, produce the DOM and append to container
         $('#todo-list').append(
-            todos.map(function (todo, index) {
-                return list.makeItem(todo, index);
-            }));
+            list.makeList(todos));
     });
 
     // handler for add item to the to do list
