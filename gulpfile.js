@@ -13,7 +13,11 @@ var config = {
     'dist'      : './dist',
     'deploy'    : './server/public',
     'data'        : ['./src/data/**/*.*'],
-    'jsSource'    : ['./src/js/TodoList.js', './src/js/app.js'],
+    'jsSource'    : [
+        './src/js/todo-list.js',
+        './src/js/todo-form.js',
+        './src/js/service.js',
+        './src/js/app.js'],
     'html'        : ['./src/index.html'],
     'partials'    : ['./src/partials/**/*.html'],
     'styles'      : ['./src/styles/**/*.css'],

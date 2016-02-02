@@ -1,43 +1,29 @@
-(function ($, list) {
+(function ($, list, form, service) {
     $('body').prepend('<h1>It runs! </h1>');
     var $todoListContainer = $('#todo-container');
-    var $addTodoForm = $('#add-todo-form');
-    var $addTodoInput = $('#add-todo-form > input');
+    var $todoFormContainer = $('#todo-form-container');
 
-    $.ajax({
-        method: 'GET',
-        url: 'data/data.json'
-    }).done(function (todos) {
+    var $theForm = form.init($todoFormContainer);
+
+    service.getList().done(function (todos) {
         console.log(todos);
         // Got data of all existing todo's, produce the DOM and append to container
         list.initList(todos, $todoListContainer);
     });
 
     // handler for add item to the to do list
-    $addTodoForm.on('submit', function (e) {
-        e.preventDefault();
-        console.log('submitting to do item', e);
+    $theForm.on('add', function (event, todoText) {
+        console.log('form has valid input', todoText);
 
-        var newItem = $addTodoInput.val();
+        var newItem = todoText;
 
-        if (!newItem) {
-            alert('Please put something in the input');
-            return;
-        }
-
-        $.ajax({
-            method: 'GET',
-            url: 'data/add-item.json'
-        }).done(function (data) {
+        service.addItem(newItem).done(function (data) {
             console.log('add item data', data);
-            alert('Item added!');
             // Server responds OK, item added. Now we sync the UI.
             list.addItem(newItem);
-        }).fail(function (xhr) {
-            console.warn('add item fail', xhr);
         });
 
     });
 
 
-}(jQuery, this.todo.list));
+}(jQuery, this.todo.list, this.todo.form, this.todo.service));

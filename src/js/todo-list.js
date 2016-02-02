@@ -37,7 +37,7 @@
 
     module.addItem = function (item) {
         items.push(item);
-        $container.html(makeList(items));
+        $container.find('ul').append(makeItem(item, items.length));
     }
 
 }(this));
