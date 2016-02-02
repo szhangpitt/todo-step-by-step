@@ -1,4 +1,4 @@
-(function (global) {
+(function (global, $) {
     var todo = global.todo;
 
     if (!todo) {
@@ -36,4 +36,4 @@
         return $form;
     }
 
-}(this));
+}(this, this.jQuery));

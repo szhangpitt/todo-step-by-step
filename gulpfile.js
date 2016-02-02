@@ -17,7 +17,7 @@ var config = {
         './src/js/todo-list.js',
         './src/js/todo-form.js',
         './src/js/service.js',
-        './src/js/app.js'],
+        './src/js/main.js'],
     'html'        : ['./src/index.html'],
     'partials'    : ['./src/partials/**/*.html'],
     'styles'      : ['./src/styles/**/*.css'],
