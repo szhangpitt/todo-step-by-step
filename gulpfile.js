@@ -11,6 +11,7 @@ var connect = require('gulp-connect');
 var config = {
     'src'       : './src',
     'dist'      : './dist',
+    'test'      : './test',
     'deploy'    : './server/public',
     'data'        : ['./src/data/**/*.*'],
     'jsSource'    : [
@@ -75,6 +76,14 @@ gulp.task('connect', function (cb) {
         root: 'dist',
         livereload: true,
         port: 8889
+    });
+});
+
+gulp.task('test', function () {
+    console.log('open /test to run test');
+    connect.server({
+        root: '.',
+        port: 9999
     });
 });
 

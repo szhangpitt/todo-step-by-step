@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+    <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="mocha"></div>
+
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js"></script>
+<script src="//cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+<script>mocha.setup('bdd')</script>
+
+
+<script src="../src/js/service.js"></script>
+<script src="../src/js/todo-form.js"></script>
+<script src="../src/js/todo-list.js"></script>
+<script src="form.js"></script>
+<script src="list.js"></script>
+<script src="service.js"></script>
+<script>
+    mocha.checkLeaks();
+    mocha.globals(['jQuery', 'todo']);
+    mocha.run();
+</script>
+</body>
+</html>
