@@ -1,6 +1,6 @@
 (function ($, list) {
     $('body').prepend('<h1>It runs! </h1>');
-    var $todoListContainer = $('#todo-list');
+    var $todoListContainer = $('#todo-container');
     var $addTodoForm = $('#add-todo-form');
     var $addTodoInput = $('#add-todo-form > input');
 
@@ -10,8 +10,7 @@
     }).done(function (todos) {
         console.log(todos);
         // Got data of all existing todo's, produce the DOM and append to container
-        $todoListContainer.append(
-            list.makeList(todos));
+        list.initList(todos, $todoListContainer);
     });
 
     // handler for add item to the to do list

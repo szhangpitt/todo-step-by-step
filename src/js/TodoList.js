@@ -17,10 +17,17 @@
                 '</li>';
     }
 
-    module.makeList = function (todos) {
-        return todos.map(function (item, index) {
+    function makeList (todos) {
+        return '' +
+        '<ul id="todo-list">' +
+        todos.map(function (item, index) {
             return module.makeItem(item, index);
-        });
+        }).join('') +
+        '</ul>'
+    }
+
+    module.initList = function (todos, $container) {
+        $container.html(module.makeList(todos));
     }
 
 }(this));
