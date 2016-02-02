@@ -32,12 +32,18 @@
     module.initList = function (todos, container) {
         $container = container;
         items = [].concat(todos);
-        $container.html(makeList(todos));
+        var $list = $(makeList(todos));
+        $container.html($list);
+
+        return $list
     }
 
     module.addItem = function (item) {
         items.push(item);
-        $container.find('ul').append(makeItem(item, items.length));
+        var $listItem = $(makeItem(item, items.length));
+        $container.find('ul').append($listItem);
+
+        return $listItem
     }
 
 }(this));
