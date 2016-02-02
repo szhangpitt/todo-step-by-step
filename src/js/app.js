@@ -32,9 +32,7 @@
             console.log('add item data', data);
             alert('Item added!');
             // Server responds OK, item added. Now we sync the UI.
-            var todo = newItem;
-            var index  = $todoListContainer.children('li').length;
-            $todoListContainer.append(list.makeItem(todo, index));
+            list.addItem(newItem);
         }).fail(function (xhr) {
             console.warn('add item fail', xhr);
         });

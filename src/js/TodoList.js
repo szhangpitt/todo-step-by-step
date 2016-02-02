@@ -8,7 +8,7 @@
 
     var module = global.todo.list = {};
 
-    module.makeItem = function (text, index) {
+    function makeItem (text, index) {
         return '<li>' +
                     '<label for="todo-input-' + index + '">' +
                         '<input type="checkbox" id="todo-input-' + index + '">&nbsp;' +
@@ -21,13 +21,23 @@
         return '' +
         '<ul id="todo-list">' +
         todos.map(function (item, index) {
-            return module.makeItem(item, index);
+            return makeItem(item, index);
         }).join('') +
         '</ul>'
     }
 
-    module.initList = function (todos, $container) {
-        $container.html(module.makeList(todos));
+    var $container;
+    var items = [];
+
+    module.initList = function (todos, container) {
+        $container = container;
+        items = [].concat(todos);
+        $container.html(makeList(todos));
+    }
+
+    module.addItem = function (item) {
+        items.push(item);
+        $container.html(makeList(items));
     }
 
 }(this));
