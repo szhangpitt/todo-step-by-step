@@ -9,13 +9,7 @@
         // Got data of all existing todo's, produce the DOM and append to container
         $('#todo-list').append(
             todos.map(function (todo, index) {
-                return '' +
-                    '<li>' +
-                        '<label for="todo-input-' + index + '">' +
-                            '<input type="checkbox" id="todo-input-' + index + '">&nbsp;' +
-                             todo +
-                        '</label>' +
-                    '</li>';
+                return makeTodoItem(todo, index);
             }));
     });
 
@@ -40,18 +34,21 @@
             // Server responds OK, item added. Now we sync the UI.
             var todo = newItem;
             var index  = $('#todo-list > li').length;
-            $('#todo-list').append('' +
-                '<li>' +
-                    '<label for="todo-input-' + index + '">' +
-                        '<input type="checkbox" id="todo-input-' + index + '">&nbsp;' +
-                         todo +
-                    '</label>' +
-                '</li>')
+            $('#todo-list').append(makeTodoItem(todo, index));
         }).fail(function (xhr) {
             console.warn('add item fail', xhr);
         });
 
     });
+
+    function makeTodoItem (text, index) {
+        return '<li>' +
+                    '<label for="todo-input-' + index + '">' +
+                        '<input type="checkbox" id="todo-input-' + index + '">&nbsp;' +
+                         text +
+                    '</label>' +
+                '</li>';
+    }
 
 
 }(jQuery));
