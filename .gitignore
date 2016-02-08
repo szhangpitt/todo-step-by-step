@@ -32,5 +32,5 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-# Our dist directory
-dist
+# Our dist directory, check it in in full-example
+# dist
