@@ -11,14 +11,14 @@
     module.getList = function () {
         return $.ajax({
             method: 'GET',
-            url: '/data/data.json'
+            url: 'data/data.json'
         })
         .fail(failHandler);
     }
     module.addItem = function (item) {
         return $.ajax({
             method: 'GET',
-            url: '/data/add-item.json'
+            url: 'data/add-item.json'
         })
         .fail(failHandler);
     }
